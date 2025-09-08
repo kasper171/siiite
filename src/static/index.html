@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Backup Viewer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar com servidores -->
+        <div class="servers-sidebar">
+            <div class="server-list" id="serverList">
+                <div class="server-item active" data-server-id="all">
+                    <i class="fas fa-home"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar com canais -->
+        <div class="channels-sidebar">
+            <div class="server-header">
+                <h3 id="serverName">Discord Backup</h3>
+                <button class="collapse-btn" id="collapseBtn">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="channels-list" id="channelsList">
+                <div class="channel-category">
+                    <div class="category-header">
+                        <i class="fas fa-chevron-down"></i>
+                        <span>CANAIS DE TEXTO</span>
+                    </div>
+                    <div class="channels" id="textChannels">
+                        <!-- Canais serão carregados dinamicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-area">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="username">Backup Viewer</span>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área principal do chat -->
+        <div class="main-content">
+            <div class="chat-header">
+                <div class="channel-info">
+                    <i class="fas fa-hashtag"></i>
+                    <span id="currentChannelName">Selecione um canal</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="header-btn" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-bar" id="searchBar" style="display: none;">
+                <input type="text" id="searchInput" placeholder="Buscar mensagens...">
+                <button id="searchSubmit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="messages-list" id="messagesList">
+                    <div class="welcome-message">
+                        <i class="fas fa-comments"></i>
+                        <h2>Bem-vindo ao Discord Backup Viewer</h2>
+                        <p>Selecione um canal na barra lateral para visualizar as mensagens.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <span>Carregando mensagens...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para visualização de mídia -->
+    <div class="modal" id="mediaModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo da mídia será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
